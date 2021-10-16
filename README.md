@@ -1,1 +1,1 @@
-# gcc_android_app
+# Grace Community Center Android App
