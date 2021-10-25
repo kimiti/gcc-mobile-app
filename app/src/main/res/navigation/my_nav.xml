@@ -17,5 +17,14 @@
         android:id="@+id/dashboardFragment"
         android:name="com.gracecommunitycenter.gracecommunitycenter.fragments.dashboard.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_videosFragment"
+            app:destination="@id/videosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videosFragment"
+        android:name="com.gracecommunitycenter.gracecommunitycenter.fragments.videos.VideosFragment"
+        android:label="fragment_videos"
+        tools:layout="@layout/fragment_videos" />
 </navigation>
