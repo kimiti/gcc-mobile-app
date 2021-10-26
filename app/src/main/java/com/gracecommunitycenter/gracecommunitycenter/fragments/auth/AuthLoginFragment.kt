@@ -34,7 +34,7 @@ class AuthLoginFragment : Fragment() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
-
+            findNavController().navigate(R.id.action_authLoginFragment2_to_dashboardFragment)
         }
     }
 
