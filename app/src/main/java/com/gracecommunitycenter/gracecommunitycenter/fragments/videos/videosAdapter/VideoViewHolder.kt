@@ -12,6 +12,19 @@ class VideoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     init {
         VideoTitleView = view.findViewById(R.id.VideoTitle)
+        view.setOnClickListener {
+            mClickListener!!.onItemClick(view, bindingAdapterPosition)
+        }
+
+    }
+
+    private var mClickListener: Clicklistener? = null
+    interface Clicklistener {
+        fun onItemClick(view: View?, position: Int)
+    }
+
+    fun setOnClicklistener(clicklistener: VideoViewHolder.Clicklistener) {
+        mClickListener = clicklistener
     }
 
 

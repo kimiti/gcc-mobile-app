@@ -70,13 +70,13 @@ class AuthLoginFragment : Fragment() {
             if (task.isSuccessful) {
                 // Sign in success, update UI with the signed-in user's information
                 Log.d(TAG, "signInWithEmail:success")
-                val user = auth.currentUser
+//                val user = auth.currentUser
                 findNavController().navigate(R.id.action_authLoginFragment2_to_dashboardFragment)
             } else {
                 // If sign in fails, display a message to the user.
                 Log.w(TAG, "signInWithEmail:failure", task.exception)
                 Toast.makeText(
-                    context, "Authentication failed.",
+                    context, task.exception.toString(),
                     Toast.LENGTH_SHORT
                 ).show()
 

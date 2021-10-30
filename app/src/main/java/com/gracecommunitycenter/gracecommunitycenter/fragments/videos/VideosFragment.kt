@@ -1,10 +1,12 @@
 package com.gracecommunitycenter.gracecommunitycenter.fragments.videos
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
@@ -22,6 +24,8 @@ class VideosFragment() : Fragment() {
 
     private val FireStoreDB = FirebaseFirestore.getInstance().collection("videos")
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,7 +33,6 @@ class VideosFragment() : Fragment() {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_videos, container, false)
         val recyclerView = mView.findViewById<RecyclerView?>(R.id.recyclerview_ShowVideo)
-
 
 
         var adapter: FirestoreRecyclerAdapter<VideoModel, VideoViewHolder>? = null
@@ -56,6 +59,15 @@ class VideosFragment() : Fragment() {
                 model: VideoModel
             ) {
                 holder.VideoTitleView.text = model.videoTitle
+                holder.setOnClicklistener(object : VideoViewHolder.Clicklistener {
+                    override fun onItemClick(view: View?, position: Int) {
+                        findNavController().navigate(
+                            VideosFragmentDirections.actionVideosFragmentToPlayVideoFragment(
+                                model.videoTitle.toString(), model.videoUrl.toString()
+                            )
+                        )
+                    }
+                })
             }
         }
 

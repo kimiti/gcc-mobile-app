@@ -21,10 +21,29 @@
         <action
             android:id="@+id/action_dashboardFragment_to_videosFragment"
             app:destination="@id/videosFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_authLoginFragment2"
+            app:destination="@id/authLoginFragment2" />
     </fragment>
     <fragment
         android:id="@+id/videosFragment"
         android:name="com.gracecommunitycenter.gracecommunitycenter.fragments.videos.VideosFragment"
         android:label="fragment_videos"
-        tools:layout="@layout/fragment_videos" />
+        tools:layout="@layout/fragment_videos" >
+        <action
+            android:id="@+id/action_videosFragment_to_playVideoFragment"
+            app:destination="@id/playVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playVideoFragment"
+        android:name="com.gracecommunitycenter.gracecommunitycenter.fragments.playvideo.PlayVideoFragment"
+        android:label="fragment_play_video"
+        tools:layout="@layout/fragment_play_video" >
+        <argument
+            android:name="videoTitle"
+            app:argType="string" />
+        <argument
+            android:name="videourl"
+            app:argType="string" />
+    </fragment>
 </navigation>

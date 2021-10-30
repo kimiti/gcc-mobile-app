@@ -10,6 +10,8 @@ import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.gracecommunitycenter.gracecommunitycenter.R
 
 class DashboardFragment : Fragment() {
@@ -26,9 +28,15 @@ class DashboardFragment : Fragment() {
 
 
         val videoCard = mView.findViewById<CardView>(R.id.videosCard)
+        val logout = mView.findViewById<Button>(R.id.logout)
 
         videoCard.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_videosFragment)
+        }
+
+        logout.setOnClickListener {
+            Firebase.auth.signOut()
+            findNavController().navigate(R.id.action_dashboardFragment_to_authLoginFragment2)
         }
 
         return mView
