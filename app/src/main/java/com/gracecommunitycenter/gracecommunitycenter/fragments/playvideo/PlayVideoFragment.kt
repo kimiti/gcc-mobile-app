@@ -23,17 +23,15 @@ import com.gracecommunitycenter.gracecommunitycenter.R
 class PlayVideoFragment : Fragment() {
 
     private lateinit var mView: View
-
-    private var playerView: PlayerView? = null
-
-    private lateinit var player: SimpleExoPlayer
-
+    private var mPlayer: SimpleExoPlayer? = null
+    private lateinit var playerView: PlayerView
     private var url: String? = null
-
     private var playwhenready = false
-
     private var currentWindow = 0
     private var playbackposition: Long = 0
+    private lateinit var videoTitle: TextView
+    private lateinit var videourl: TextView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,18 +41,12 @@ class PlayVideoFragment : Fragment() {
         mView = inflater.inflate(R.layout.fragment_play_video, container, false)
 
         val args = PlayVideoFragmentArgs.fromBundle(requireArguments())
-
-        var videoTitle = mView.findViewById<TextView>(R.id.tv_fullscreen_title)
-        playerView = mView.findViewById<PlayerView>(R.id.exoplayer_fullscreen)
-
-        var videourl = mView.findViewById<TextView>(R.id.videourl)
-
+        videoTitle = mView.findViewById(R.id.tv_fullscreen_title)
+        playerView = mView.findViewById(R.id.exoplayer_fullscreen)
+        videourl = mView.findViewById(R.id.videourl)
         videoTitle.text = args.videoTitle
-
         videourl.text = args.videourl
-
         url = args.videourl
-
 
 
         return mView
@@ -67,13 +59,13 @@ class PlayVideoFragment : Fragment() {
     }
 
     private fun initializeplayer() {
-        player = ExoPlayerFactory.newSimpleInstance(context)
-        playerView?.setPlayer(player)
+        mPlayer = ExoPlayerFactory.newSimpleInstance(context)
+        playerView?.setPlayer(mPlayer)
         val uri = Uri.parse(url)
         val mediaSource = buildMediaSource(uri)
-        player.setPlayWhenReady(playwhenready)
-        player.seekTo(currentWindow, playbackposition)
-        player.prepare(mediaSource, false, false)
+        mPlayer?.setPlayWhenReady(playwhenready)
+        mPlayer?.seekTo(currentWindow, playbackposition)
+        mPlayer?.prepare(mediaSource, false, false)
     }
 
     override fun onStart() {
@@ -83,14 +75,14 @@ class PlayVideoFragment : Fragment() {
         }
     }
 
-     override fun onResume() {
+    override fun onResume() {
         super.onResume()
-        if (Util.SDK_INT >= 26 || player == null) {
+        if (Util.SDK_INT >= 26 || mPlayer == null) {
             //  initializeplayer();
         }
     }
 
-     override fun onPause() {
+    override fun onPause() {
         super.onPause()
         if (Util.SDK_INT > 26) {
             releasePlayer()
@@ -98,19 +90,13 @@ class PlayVideoFragment : Fragment() {
     }
 
     private fun releasePlayer() {
-        if (player != null) {
-            playwhenready = player.playWhenReady
-            playbackposition = player.currentPosition
-            currentWindow = player.currentWindowIndex
-            player = null!!
+        if (mPlayer != null) {
+            playwhenready = mPlayer?.playWhenReady!!
+            playbackposition = mPlayer?.currentPosition!!
+            currentWindow = mPlayer?.currentWindowIndex!!
+            mPlayer = null
         }
     }
-
-
-
-
-
-
 
 
 }

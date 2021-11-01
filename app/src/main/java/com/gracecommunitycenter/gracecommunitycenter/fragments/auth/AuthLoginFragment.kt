@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
@@ -22,6 +23,9 @@ class AuthLoginFragment : Fragment() {
     private lateinit var mView: View
     private lateinit var auth: FirebaseAuth
     private val TAG = "AuthLoginFragment"
+
+    private lateinit var username: TextInputLayout
+    private lateinit var password: TextInputLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +49,8 @@ class AuthLoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_auth_login, container, false)
-        val username = mView.findViewById<TextInputLayout>(R.id.usernameTextField)
-        val password = mView.findViewById<TextInputLayout>(R.id.passwordTextField)
+        username = mView.findViewById(R.id.usernameTextField)
+        password = mView.findViewById(R.id.passwordTextField)
 
 
         val loginButton = mView.findViewById<Button>(R.id.loginButton)
@@ -61,7 +65,7 @@ class AuthLoginFragment : Fragment() {
         return mView
     }
 
-    private fun login(email:String, password:String) {
+    private fun login(email: String, password: String) {
 
         auth.signInWithEmailAndPassword(
             email,
