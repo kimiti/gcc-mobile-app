@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -17,6 +18,8 @@ import com.gracecommunitycenter.gracecommunitycenter.R
 class DashboardFragment : Fragment() {
 
     private lateinit var mView: View
+    private lateinit var videoCard: CardView
+    private lateinit var logout: Button
     private val TAG = "DashboardFragment"
 
     override fun onCreateView(
@@ -25,10 +28,8 @@ class DashboardFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_dashboard, container, false)
-
-
-        val videoCard = mView.findViewById<CardView>(R.id.videosCard)
-        val logout = mView.findViewById<Button>(R.id.logout)
+        videoCard = mView.findViewById<CardView>(R.id.videosCard)
+        logout = mView.findViewById<Button>(R.id.logout)
 
         videoCard.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_videosFragment)

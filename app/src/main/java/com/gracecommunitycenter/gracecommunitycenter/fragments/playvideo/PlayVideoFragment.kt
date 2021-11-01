@@ -30,7 +30,6 @@ class PlayVideoFragment : Fragment() {
     private var currentWindow = 0
     private var playbackposition: Long = 0
     private lateinit var videoTitle: TextView
-    private lateinit var videourl: TextView
 
 
     override fun onCreateView(
@@ -43,9 +42,7 @@ class PlayVideoFragment : Fragment() {
         val args = PlayVideoFragmentArgs.fromBundle(requireArguments())
         videoTitle = mView.findViewById(R.id.tv_fullscreen_title)
         playerView = mView.findViewById(R.id.exoplayer_fullscreen)
-        videourl = mView.findViewById(R.id.videourl)
         videoTitle.text = args.videoTitle
-        videourl.text = args.videourl
         url = args.videourl
 
 
