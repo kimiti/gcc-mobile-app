@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".fragments.playvideo.PlayVideoFragment">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,9 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="20dp"
+            android:letterSpacing="0.2"
+            android:paddingVertical="10dp"
             android:text="videoTitle"
-            android:textColor="@color/black"
             android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 
@@ -35,7 +34,6 @@
         android:id="@+id/exoplayer_fullscreen"
         android:layout_width="0dp"
         android:layout_height="230dp"
-
         android:layout_marginTop="32dp"
         app:controller_layout_id="@layout/exoplayer_custom_controls"
         app:layout_constraintEnd_toEndOf="@+id/cardView"

@@ -17,7 +17,6 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 import com.google.android.exoplayer2.util.Util
-import com.google.android.material.textfield.TextInputLayout
 import com.gracecommunitycenter.gracecommunitycenter.R
 
 class PlayVideoFragment : Fragment() {
@@ -86,14 +85,32 @@ class PlayVideoFragment : Fragment() {
         }
     }
 
-    private fun releasePlayer() {
-        if (mPlayer != null) {
-            playwhenready = mPlayer?.playWhenReady!!
-            playbackposition = mPlayer?.currentPosition!!
-            currentWindow = mPlayer?.currentWindowIndex!!
-            mPlayer = null
+    override fun onStop() {
+        super.onStop()
+        if (Util.SDK_INT >= 26) {
+            releasePlayer()
         }
     }
+
+//    private fun releasePlayer() {
+//        if (mPlayer != null) {
+//            playwhenready = mPlayer?.playWhenReady!!
+//            playbackposition = mPlayer?.currentPosition!!
+//            currentWindow = mPlayer?.currentWindowIndex!!
+//            mPlayer = null
+//        }
+//    }
+
+    private fun releasePlayer() {
+        mPlayer?.run {
+            playbackposition = this.currentPosition
+            currentWindow = this.currentWindowIndex
+            playWhenReady = this.playWhenReady
+            release()
+        }
+        mPlayer = null
+    }
+
 
 
 }

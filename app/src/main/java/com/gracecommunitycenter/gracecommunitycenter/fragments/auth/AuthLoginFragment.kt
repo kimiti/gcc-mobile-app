@@ -77,7 +77,7 @@ class AuthLoginFragment : Fragment() {
                 // If sign in fails, display a message to the user.
                 Log.w(TAG, "signInWithEmail:failure", task.exception)
                 Toast.makeText(
-                    context, task.exception.toString(),
+                    context, task.exception?.message.toString(),
                     Toast.LENGTH_SHORT
                 ).show()
 
