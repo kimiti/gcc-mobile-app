@@ -34,6 +34,7 @@
         android:id="@+id/exoplayer_fullscreen"
         android:layout_width="0dp"
         android:layout_height="230dp"
+
         android:layout_marginTop="32dp"
         app:controller_layout_id="@layout/exoplayer_custom_controls"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
