@@ -24,6 +24,21 @@
         <action
             android:id="@+id/action_dashboardFragment_to_authLoginFragment2"
             app:destination="@id/authLoginFragment2" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_announcementsFragment"
+            app:destination="@id/announcementsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_e_materialsFragment"
+            app:destination="@id/e_materialsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_songsFragment"
+            app:destination="@id/songsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_sermonsFragment"
+            app:destination="@id/sermonsFragment" />
     </fragment>
     <fragment
         android:id="@+id/videosFragment"
@@ -46,4 +61,29 @@
             android:name="videourl"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.gracecommunitycenter.gracecommunitycenter.fragments.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/announcementsFragment"
+        android:name="com.gracecommunitycenter.gracecommunitycenter.fragments.announcements.AnnouncementsFragment"
+        android:label="fragment_announcements"
+        tools:layout="@layout/fragment_announcements" />
+    <fragment
+        android:id="@+id/e_materialsFragment"
+        android:name="com.gracecommunitycenter.gracecommunitycenter.fragments.e_materials.E_materialsFragment"
+        android:label="fragment_e_materials"
+        tools:layout="@layout/fragment_e_materials" />
+    <fragment
+        android:id="@+id/songsFragment"
+        android:name="com.gracecommunitycenter.gracecommunitycenter.fragments.songs.SongsFragment"
+        android:label="fragment_songs"
+        tools:layout="@layout/fragment_songs" />
+    <fragment
+        android:id="@+id/sermonsFragment"
+        android:name="com.gracecommunitycenter.gracecommunitycenter.fragments.sermons.sermonsFragment"
+        android:label="fragment_sermons"
+        tools:layout="@layout/fragment_sermons" />
 </navigation>

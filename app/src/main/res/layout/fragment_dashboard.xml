@@ -96,7 +96,7 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/annouceCard"
+                android:id="@+id/AnnouncementsCard"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 app:cardCornerRadius="12dp"
@@ -132,7 +132,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/open_bookCard"
+                android:id="@+id/E_materialsCard"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 app:cardCornerRadius="12dp"
@@ -168,7 +168,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/musical_noteCard"
+                android:id="@+id/SongCard"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 app:cardCornerRadius="12dp"
